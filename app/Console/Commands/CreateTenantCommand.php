@@ -39,7 +39,7 @@ class CreateTenantCommand extends Command
             'uuid' => $tenant === 'test' ? '9669ed7' : (new UuidGenerator())->generate(),
             'is_test' => $tenant === 'test',
             'fqdn' => $url,
-            'first_name ' => ucfirst($tenant),
+            'first_name' => ucfirst($tenant),
             'last_name' => 'Admin',
             'email' => "$tenant@$domain",
             'password' => $password,

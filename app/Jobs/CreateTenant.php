@@ -2,7 +2,9 @@
 
 namespace App\Jobs;
 
+use App\Models\User;
 use App\Eloquent\Tenant;
+use Tenancy\Facades\Tenancy;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -47,5 +49,8 @@ class CreateTenant implements ShouldQueue
     private function registerAdmin()
     {
         // TODO: Implement registerAdmin() method.
+        Tenancy::setTenant($this->tenant);
+
+        $user = User::create($this->data);
     }
 }
